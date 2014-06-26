@@ -1,5 +1,11 @@
 RemoteMiner::Application.routes.draw do
   devise_for :users
+
+  devise_scope :user do
+    get "sign_up", :to => "devise/registrations#new"   #for /sign_up and  #sign_up_path
+    get "sign_in", :to => "devise/sessions#new"        #for /sign_in and  sign_in_path
+  end
+
   get "static_pages/home"
   get "static_pages/about"
   # The priority is based upon order of creation: first created -> highest priority.
