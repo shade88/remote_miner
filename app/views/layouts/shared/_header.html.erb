@@ -1,19 +1,35 @@
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <%= link_to 'BBD Blog', root_path, class: 'brand' %>
-    <ul class="nav pull-left">
-      <li><%= link_to 'Home', root_path %>   </li>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Remote Miner Site', root_path, class: 'navbar-brand' %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Home', '#' %></li>
+        <li><%= link_to 'About', '#'%></li>
+        <li><%= link_to 'Miners', '#'%></li>
+        <li><%= link_to 'Profile', '#'%></li>
+
       </ul>
-    <ul class="nav pull-right">
-      <% if user_signed_in? %>
-          <li>you are <%= current_user.email %>      </li>
-          <li><%= link_to 'View profile', user_path(current_user) %>    </li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path %>   </li>
-      <% else %>
-          <li> <%= link_to 'Sign Up', sign_up_path %>     </li>
-          <li class="navbar-text">or</li>
-          <li><%= link_to 'Sign in', new_user_session_path %>      </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+      <ul class="nav navbar-nav pull-right">
+        <% if user_signed_in? %>
+            <li>you are <%= current_user.email %>      </li>
+            <li><%= link_to 'View profile', user_path(current_user) %>    </li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path %>   </li>
+        <% else %>
+            <li> <%= link_to 'Sign Up', sign_up_path %>     </li>
+            <li class="navbar-text">or</li>
+            <li><%= link_to 'Sign in', new_user_session_path %>      </li>
+        <% end %>
+      </ul>
+    </div>     <!-- /.navbar-collapse -->
+  </div>     <!-- /.container-fluid -->
+</nav>
